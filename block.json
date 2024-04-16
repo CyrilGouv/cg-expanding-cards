@@ -1,0 +1,16 @@
+{
+    "apiVersion": 2,
+    "name": "cyrilgouv/expanding-cards",
+    "title": "CG Expanding Cards",
+    "description": "An expanding cards grid",
+    "category": "media",
+    "icon": "format-gallery",
+    "keywords": ["Expanding", "Cards", "Grid"],
+    "supports": {
+        "html": false
+    },
+    "textdomain": "expanding-cards",
+    "editorScript": "file:./build/index.js",
+    "editorStyle": "file:./build/index.css",
+    "style": "file:./build/style-index.css"
+}

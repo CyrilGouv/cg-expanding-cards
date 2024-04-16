@@ -1,0 +1,19 @@
+{
+  "name": "cg-expanding-cards",
+  "version": "1.0.0",
+  "description": "An expanding cards grid WordPress Plugin",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "wp-scripts build",
+    "start": "wp-scripts start"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@wordpress/scripts": "^27.6.0"
+  },
+  "dependencies": {
+    "@wordpress/block-editor": "^12.23.0",
+    "@wordpress/i18n": "^4.55.0"
+  }
+}
