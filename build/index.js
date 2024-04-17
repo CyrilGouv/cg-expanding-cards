@@ -25,10 +25,25 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function Edit() {
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Welcome to expanding cards!", _block_json__WEBPACK_IMPORTED_MODULE_3__.textdomain));
+function Edit({
+  attributes,
+  setAttributes
+}) {
+  const {
+    columns
+  } = attributes;
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
+      className: `has-${columns}-columns`
+    }),
+    dataColumns: columns
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, {
+    allowedBlocks: ["core/image"],
+    orientation: "horizontal",
+    template: [["core/image"], ["core/image"], ["core/image"]]
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "cg-expanding-cards__add"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "+"))));
 }
 
 /***/ }),
@@ -68,8 +83,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ save)
 /* harmony export */ });
-function save() {
-  return null;
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./src/style.scss");
+
+
+function save({
+  attributes
+}) {
+  const {
+    columns
+  } = attributes;
+  const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save();
+  const {
+    children
+  } = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useInnerBlocksProps.save(blockProps);
+  return children;
 }
 
 /***/ }),
@@ -144,7 +173,7 @@ module.exports = window["wp"]["i18n"];
   \********************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"apiVersion":2,"name":"cyrilgouv/expanding-cards","title":"CG Expanding Cards","description":"An expanding cards grid","category":"media","icon":"format-gallery","keywords":["Expanding","Cards","Grid"],"supports":{"html":false},"textdomain":"expanding-cards","editorScript":"file:./build/index.js","editorStyle":"file:./build/index.css","style":"file:./build/style-index.css"}');
+module.exports = /*#__PURE__*/JSON.parse('{"apiVersion":2,"name":"cyrilgouv/expanding-cards","title":"CG Expanding Cards","description":"An expanding cards grid","category":"media","icon":"format-gallery","keywords":["Expanding","Cards","Grid"],"supports":{"html":false,"align":["wide"]},"attributes":{"columns":{"type":"number","default":3}},"textdomain":"expanding-cards","editorScript":"file:./build/index.js","editorStyle":"file:./build/index.css","style":"file:./build/style-index.css","viewScript":"file:./src/view.js","render":"file:./src/render.php"}');
 
 /***/ })
 

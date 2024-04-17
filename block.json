@@ -7,10 +7,19 @@
     "icon": "format-gallery",
     "keywords": ["Expanding", "Cards", "Grid"],
     "supports": {
-        "html": false
+        "html": false,
+        "align": ["wide"]
+    },
+    "attributes": {
+        "columns": {
+            "type": "number",
+            "default": 3
+        }
     },
     "textdomain": "expanding-cards",
     "editorScript": "file:./build/index.js",
     "editorStyle": "file:./build/index.css",
-    "style": "file:./build/style-index.css"
+    "style": "file:./build/style-index.css",
+    "viewScript": "file:./src/view.js",
+    "render": "file:./src/render.php"
 }

@@ -1,0 +1,41 @@
+.wp-block-cyrilgouv-expanding-cards {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+
+    .block-editor-inner-blocks {
+        .block-editor-block-list__layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            column-gap: 2rem;
+
+            .wp-block-image {
+                aspect-ratio: 1 / 1;
+                min-width: 100%;
+                min-height: 100%;
+                overflow: hidden;
+
+                .components-resizable-box__container {
+                    aspect-ratio: 1 / 1;
+
+                    img {
+                        min-width: 100%;
+                        min-height: 100%;
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
+    }
+
+    .cg-expanding-cards__add {
+        margin-left: 2rem;
+
+        button {
+            background-color: lightgray;
+            cursor: pointer;
+            border-radius: 2px;
+            box-shadow: none;
+            border: none;
+        }
+    }
+}
