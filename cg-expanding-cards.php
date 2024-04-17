@@ -12,4 +12,4 @@ function cg_expanding_cards_init() {
     register_block_type_from_metadata( __DIR__ );
 }
 
-add_action( "init", "register_block_type_from_metadata" );
+add_action( "init", "cg_expanding_cards_init" );
