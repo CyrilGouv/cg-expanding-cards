@@ -33,17 +33,15 @@ function Edit({
     columns
   } = attributes;
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
-      className: `has-${columns}-columns`
-    }),
-    dataColumns: columns
+    ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)(),
+    style: {
+      "--columns": columns
+    }
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, {
     allowedBlocks: ["core/image"],
     orientation: "horizontal",
     template: [["core/image"], ["core/image"], ["core/image"]]
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "cg-expanding-cards__add"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "+"))));
+  }));
 }
 
 /***/ }),
@@ -173,7 +171,7 @@ module.exports = window["wp"]["i18n"];
   \********************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"apiVersion":2,"name":"cyrilgouv/expanding-cards","title":"CG Expanding Cards","description":"An expanding cards grid","category":"media","icon":"format-gallery","keywords":["Expanding","Cards","Grid"],"supports":{"html":false,"align":["wide"]},"attributes":{"columns":{"type":"number","default":3}},"textdomain":"expanding-cards","editorScript":"file:./build/index.js","editorStyle":"file:./build/index.css","style":"file:./build/style-index.css","viewScript":"file:./src/view.js","render":"file:./src/render.php"}');
+module.exports = /*#__PURE__*/JSON.parse('{"apiVersion":2,"name":"cyrilgouv/expanding-cards","title":"CG Expanding Cards","description":"An expanding cards grid","category":"media","icon":"format-gallery","keywords":["Expanding","Cards","Grid"],"supports":{"html":false,"align":["wide"]},"attributes":{"columns":{"type":"number","default":3}},"textdomain":"expanding-cards","editorScript":"file:./build/index.js","editorStyle":"file:./build/index.css","viewStyle":"file:./build/view.css","viewScript":"file:./src/view.js","render":"file:./src/render.php"}');
 
 /***/ })
 

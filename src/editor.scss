@@ -1,15 +1,12 @@
 .wp-block-cyrilgouv-expanding-cards {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
 
     .block-editor-inner-blocks {
         .block-editor-block-list__layout {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            column-gap: 2rem;
+            grid-template-columns: repeat(var(--columns), 1fr);
+            column-gap: .5rem;
 
             .wp-block-image {
-                aspect-ratio: 1 / 1;
                 min-width: 100%;
                 min-height: 100%;
                 overflow: hidden;

@@ -10,9 +10,7 @@ export default function Edit({ attributes, setAttributes }) {
     const { columns } = attributes
 
     return (
-        <div { ...useBlockProps({
-            className: `has-${columns}-columns`
-        }) } dataColumns={ columns }>
+        <div { ...useBlockProps() } style={{ "--columns": columns }}>
             <InnerBlocks 
                 allowedBlocks={ ["core/image"] }
                 orientation="horizontal"
@@ -22,11 +20,6 @@ export default function Edit({ attributes, setAttributes }) {
                     ["core/image"]
                 ]}
             />
-            <div className="cg-expanding-cards__add">
-                <button>
-                    <span>+</span>
-                </button>
-            </div>
         </div>
     )
 }
