@@ -1,4 +1,24 @@
 /*!***************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/style.scss ***!
   \***************************************************************************************************************************************************************************************************************************************/
+.wp-block-cyrilgouv-expanding-cards {
+  display: flex;
+}
+.wp-block-cyrilgouv-expanding-cards .wp-block-image {
+  flex: 0.5;
+  transition: flex 0.375s ease-in;
+  height: 20vw;
+  cursor: pointer;
+}
+.wp-block-cyrilgouv-expanding-cards .wp-block-image.isActive {
+  flex: var(--columns);
+}
+.wp-block-cyrilgouv-expanding-cards .wp-block-image img {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 
+/*# sourceMappingURL=style-index.css.map*/
