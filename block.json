@@ -19,7 +19,7 @@
     "textdomain": "expanding-cards",
     "editorScript": "file:./build/index.js",
     "editorStyle": "file:./build/index.css",
-    "viewStyle": "file:./build/view.css",
+    "viewStyle": "file:./build/style-index.css",
     "viewScript": "file:./src/view.js",
     "render": "file:./src/render.php"
 }
