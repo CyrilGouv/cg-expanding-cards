@@ -18,8 +18,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../block.json */ "./block.json");
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./editor.scss */ "./src/editor.scss");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../block.json */ "./block.json");
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./editor.scss */ "./src/editor.scss");
+
+
 
 
 
@@ -27,11 +31,25 @@ __webpack_require__.r(__webpack_exports__);
 
 function Edit({
   attributes,
-  setAttributes
+  setAttributes,
+  clientId
 }) {
   const {
     columns
   } = attributes;
+  const selectInnerBlocks = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useSelect)(select => {
+    const {
+      getBlocksByClientId
+    } = select("core/block-editor");
+    const block = getBlocksByClientId(clientId)?.[0];
+    return block?.innerBlocks;
+  }, [clientId]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    setAttributes({
+      columns: selectInnerBlocks.length
+    });
+    console.log(columns);
+  }, [selectInnerBlocks]);
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)(),
     style: {
@@ -155,6 +173,16 @@ module.exports = window["wp"]["blocks"];
 
 /***/ }),
 
+/***/ "@wordpress/data":
+/*!******************************!*\
+  !*** external ["wp","data"] ***!
+  \******************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["data"];
+
+/***/ }),
+
 /***/ "@wordpress/i18n":
 /*!******************************!*\
   !*** external ["wp","i18n"] ***!
@@ -171,7 +199,7 @@ module.exports = window["wp"]["i18n"];
   \********************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"apiVersion":2,"name":"cyrilgouv/expanding-cards","title":"CG Expanding Cards","description":"An expanding cards grid","category":"media","icon":"format-gallery","keywords":["Expanding","Cards","Grid"],"supports":{"html":false,"align":["wide"]},"attributes":{"columns":{"type":"number","default":3}},"textdomain":"expanding-cards","editorScript":"file:./build/index.js","editorStyle":"file:./build/index.css","viewStyle":"file:./build/view.css","viewScript":"file:./src/view.js","render":"file:./src/render.php"}');
+module.exports = /*#__PURE__*/JSON.parse('{"apiVersion":2,"name":"cyrilgouv/expanding-cards","title":"CG Expanding Cards","description":"An expanding cards grid","category":"media","icon":"format-gallery","keywords":["Expanding","Cards","Grid"],"supports":{"html":false,"align":["wide"]},"attributes":{"columns":{"type":"number","default":3}},"textdomain":"expanding-cards","editorScript":"file:./build/index.js","editorStyle":"file:./build/index.css","viewStyle":"file:./build/style-index.css","viewScript":"file:./src/view.js","render":"file:./src/render.php"}');
 
 /***/ })
 
