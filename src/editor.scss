@@ -23,4 +23,27 @@
             }
         }
     }
+
+
+    .preview-mode {
+        display: flex;
+
+        .wp-block-image {
+            flex: .5;
+            transition: flex .375s ease-in;
+            height: 20vw;
+            cursor: pointer;
+    
+            &.isActive {
+                flex: var(--columns);
+            }
+    
+            img {
+                display: inline-block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
 }

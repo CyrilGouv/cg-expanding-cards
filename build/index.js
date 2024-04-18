@@ -94,7 +94,7 @@ function Edit({
     orientation: "horizontal",
     template: [["core/image"], ["core/image"], ["core/image"]]
   }), preview && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "isPreviewed",
+    className: "preview-mode",
     ref: wrapperEl
   }, selectInnerBlocks.map((innerBlock, idx) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("figure", {
     key: innerBlock.clientId,

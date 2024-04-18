@@ -75,7 +75,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 
                 { preview && (
                     <div 
-                        className="isPreviewed"
+                        className="preview-mode"
                         ref={ wrapperEl }
                     >
                         
