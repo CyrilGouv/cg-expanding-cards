@@ -1,9 +1,9 @@
 import { useEffect } from "react"
 import { __ } from "@wordpress/i18n"
-import { useBlockProps, InnerBlocks, BlockControls } from "@wordpress/block-editor"
+import { useBlockProps, InnerBlocks, BlockControls, InspectorControls } from "@wordpress/block-editor"
 import { useSelect } from "@wordpress/data"
 import { useState, useRef } from "@wordpress/element"
-import { ToolbarGroup, ToolbarButton } from "@wordpress/components"
+import { ToolbarGroup, ToolbarButton, PanelBody, ToggleControl } from "@wordpress/components"
 import metadata from "../block.json"
 
 import "./editor.scss"
@@ -12,7 +12,7 @@ import "./editor.scss"
 export default function Edit({ attributes, setAttributes, clientId }) {
 
     // Attributes
-    const { columns } = attributes
+    const { columns, enableBorderRadius } = attributes
 
     // States
     const [preview, setPreview] = useState(false)
@@ -50,6 +50,21 @@ export default function Edit({ attributes, setAttributes, clientId }) {
     // Render
     return (
         <>
+            <InspectorControls>
+                <PanelBody
+                    title={ __("Images Border Radius", metadata.textdomain) }
+                    initialOpen={ true }
+                >
+                    <div style={{ display: "flex" }}>
+                        <ToggleControl 
+                            checked={ enableBorderRadius }
+                            onChange={ () => setAttributes({ enableBorderRadius: !enableBorderRadius }) }
+                        />
+                        <span>{ __("Enable border radius", metadata.textdomain) }</span>
+                    </div>
+                </PanelBody>
+            </InspectorControls>
+
             <BlockControls>
                 <ToolbarGroup>
                     <ToolbarButton
@@ -60,7 +75,9 @@ export default function Edit({ attributes, setAttributes, clientId }) {
                 </ToolbarGroup>
             </BlockControls>
 
-            <div { ...useBlockProps() } style={{ "--columns": columns }}>
+            <div { ...useBlockProps({
+                className: enableBorderRadius ? "hasBorderRadius" : ""
+            }) } style={{ "--columns": columns }}>
                 { !preview && (
                     <InnerBlocks 
                         allowedBlocks={ ["core/image"] }

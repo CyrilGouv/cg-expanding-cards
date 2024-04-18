@@ -24,6 +24,10 @@
         }
     }
 
+    &.hasBorderRadius .preview-mode .wp-block-image img,
+    &.hasBorderRadius .block-editor-inner-blocks .block-editor-block-list__layout .wp-block-image .components-resizable-box__container img {
+        border-radius: 50px;
+    }
 
     .preview-mode {
         display: flex;
