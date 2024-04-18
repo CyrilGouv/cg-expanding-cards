@@ -180,7 +180,9 @@ function save({
   attributes
 }) {
   const {
-    columns
+    columns,
+    enableBorderRadius,
+    enableGap
   } = attributes;
   const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save();
   const {

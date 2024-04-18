@@ -5,7 +5,7 @@ import "./style.scss"
 
 export default function save({ attributes }) {
 
-    const { columns } = attributes
+    const { columns, enableBorderRadius, enableGap } = attributes
     const blockProps = useBlockProps.save()
     const { children } =  useInnerBlocksProps.save(blockProps)
 

@@ -20,5 +20,12 @@
   -o-object-fit: cover;
      object-fit: cover;
 }
+.wp-block-cyrilgouv-expanding-cards.hasBorderRadius .wp-block-image img {
+  border-radius: 50px;
+}
+.wp-block-cyrilgouv-expanding-cards.hasEnableGap {
+  -moz-column-gap: 0.5rem;
+       column-gap: 0.5rem;
+}
 
 /*# sourceMappingURL=style-index.css.map*/
