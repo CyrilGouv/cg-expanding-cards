@@ -18,6 +18,10 @@
         "enableBorderRadius": {
             "type": "boolean",
             "default": false
+        },
+        "enableGap": {
+            "type": "boolean",
+            "default": false
         }
     },
     "textdomain": "expanding-cards",
