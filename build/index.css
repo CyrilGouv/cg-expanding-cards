@@ -21,15 +21,5 @@
   -o-object-fit: cover;
      object-fit: cover;
 }
-.wp-block-cyrilgouv-expanding-cards .cg-expanding-cards__add {
-  margin-left: 2rem;
-}
-.wp-block-cyrilgouv-expanding-cards .cg-expanding-cards__add button {
-  background-color: lightgray;
-  cursor: pointer;
-  border-radius: 2px;
-  box-shadow: none;
-  border: none;
-}
 
 /*# sourceMappingURL=index.css.map*/
