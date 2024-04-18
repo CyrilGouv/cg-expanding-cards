@@ -43,7 +43,8 @@ function Edit({
   // Attributes
   const {
     columns,
-    enableBorderRadius
+    enableBorderRadius,
+    enableGap
   } = attributes;
 
   // States
@@ -93,13 +94,25 @@ function Edit({
     onChange: () => setAttributes({
       enableBorderRadius: !enableBorderRadius
     })
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Enable border radius", _block_json__WEBPACK_IMPORTED_MODULE_6__.textdomain))))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.BlockControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.ToolbarGroup, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.ToolbarButton, {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Enable border radius", _block_json__WEBPACK_IMPORTED_MODULE_6__.textdomain)))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Images Gap", _block_json__WEBPACK_IMPORTED_MODULE_6__.textdomain),
+    initialOpen: true
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    style: {
+      display: "flex"
+    }
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.ToggleControl, {
+    checked: enableGap,
+    onChange: () => setAttributes({
+      enableGap: !enableGap
+    })
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Enable gap between images", _block_json__WEBPACK_IMPORTED_MODULE_6__.textdomain))))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.BlockControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.ToolbarGroup, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.ToolbarButton, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Preview", _block_json__WEBPACK_IMPORTED_MODULE_6__.textdomain),
     icon: !preview ? "admin-customizer" : "welcome-view-site",
     onClick: () => setPreview(!preview)
   }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
-      className: enableBorderRadius ? "hasBorderRadius" : ""
+      className: [enableBorderRadius ? "hasBorderRadius" : "", enableGap ? "hasEnableGap" : ""]
     }),
     style: {
       "--columns": columns
@@ -278,7 +291,7 @@ module.exports = window["wp"]["i18n"];
   \********************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"apiVersion":2,"name":"cyrilgouv/expanding-cards","title":"CG Expanding Cards","description":"An expanding cards grid","category":"media","icon":"format-gallery","keywords":["Expanding","Cards","Grid"],"supports":{"html":false,"align":["wide"]},"attributes":{"columns":{"type":"number","default":3},"enableBorderRadius":{"type":"boolean","default":false}},"textdomain":"expanding-cards","editorScript":"file:./build/index.js","editorStyle":"file:./build/index.css","viewStyle":"file:./build/style-index.css","viewScript":"file:./src/view.js","render":"file:./src/render.php"}');
+module.exports = /*#__PURE__*/JSON.parse('{"apiVersion":2,"name":"cyrilgouv/expanding-cards","title":"CG Expanding Cards","description":"An expanding cards grid","category":"media","icon":"format-gallery","keywords":["Expanding","Cards","Grid"],"supports":{"html":false,"align":["wide"]},"attributes":{"columns":{"type":"number","default":3},"enableBorderRadius":{"type":"boolean","default":false},"enableGap":{"type":"boolean","default":false}},"textdomain":"expanding-cards","editorScript":"file:./build/index.js","editorStyle":"file:./build/index.css","viewStyle":"file:./build/style-index.css","viewScript":"file:./src/view.js","render":"file:./src/render.php"}');
 
 /***/ })
 

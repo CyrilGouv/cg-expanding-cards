@@ -12,7 +12,7 @@ import "./editor.scss"
 export default function Edit({ attributes, setAttributes, clientId }) {
 
     // Attributes
-    const { columns, enableBorderRadius } = attributes
+    const { columns, enableBorderRadius, enableGap } = attributes
 
     // States
     const [preview, setPreview] = useState(false)
@@ -63,6 +63,19 @@ export default function Edit({ attributes, setAttributes, clientId }) {
                         <span>{ __("Enable border radius", metadata.textdomain) }</span>
                     </div>
                 </PanelBody>
+
+                <PanelBody
+                    title={ __("Images Gap", metadata.textdomain) }
+                    initialOpen={ true }
+                >
+                    <div style={{ display: "flex" }}>
+                        <ToggleControl 
+                            checked={ enableGap }
+                            onChange={ () => setAttributes({ enableGap: !enableGap }) }
+                        />
+                        <span>{ __("Enable gap between images", metadata.textdomain) }</span>
+                    </div>
+                </PanelBody>
             </InspectorControls>
 
             <BlockControls>
@@ -76,7 +89,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
             </BlockControls>
 
             <div { ...useBlockProps({
-                className: enableBorderRadius ? "hasBorderRadius" : ""
+                className: [enableBorderRadius ? "hasBorderRadius" : "", enableGap ? "hasEnableGap" : ""]
             }) } style={{ "--columns": columns }}>
                 { !preview && (
                     <InnerBlocks 
