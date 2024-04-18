@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import { __ } from "@wordpress/i18n"
 import { useBlockProps, InnerBlocks, BlockControls } from "@wordpress/block-editor"
 import { useSelect } from "@wordpress/data"
-import { useState } from "@wordpress/element"
+import { useState, useRef } from "@wordpress/element"
 import { ToolbarGroup, ToolbarButton } from "@wordpress/components"
 import metadata from "../block.json"
 
@@ -16,6 +16,10 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 
     // States
     const [preview, setPreview] = useState(false)
+    const [previewActiveImg, setPreviewActiveImg] = useState(0)
+
+    // Elements reference
+    const wrapperEl = useRef(null)
 
     // Get all inner blocks
     const selectInnerBlocks = useSelect(select => {
@@ -30,6 +34,19 @@ export default function Edit({ attributes, setAttributes, clientId }) {
         setAttributes({ columns: selectInnerBlocks.length })
     }, [selectInnerBlocks])
 
+    // Handle active image according to the state
+    useEffect(() => {
+        handleActiveImg()
+    }, [preview, previewActiveImg])
+
+    const handleActiveImg = () => {
+        if(wrapperEl.current) {
+            Array.from(wrapperEl.current?.children).map(item => item.classList.remove("isActive"))
+            wrapperEl.current?.children[previewActiveImg].classList.add("isActive")
+        }
+    }
+
+    
     // Render
     return (
         <>
@@ -57,8 +74,23 @@ export default function Edit({ attributes, setAttributes, clientId }) {
                 ) }
 
                 { preview && (
-                    <div className="isPreviewed">
+                    <div 
+                        className="isPreviewed"
+                        ref={ wrapperEl }
+                    >
                         
+                        { selectInnerBlocks.map((innerBlock, idx) => (
+                            <figure 
+                                key={ innerBlock.clientId }
+                                className="wp-block-image"
+                                onClick={ () => setPreviewActiveImg(idx) }
+                            >
+                                <img 
+                                    src={ innerBlock.attributes.url }
+                                    alt={ innerBlock.attributes.alt }
+                                />
+                            </figure>
+                        )) }
                     </div>
                 ) }
             </div>

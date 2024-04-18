@@ -47,6 +47,10 @@ function Edit({
 
   // States
   const [preview, setPreview] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.useState)(false);
+  const [previewActiveImg, setPreviewActiveImg] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.useState)(0);
+
+  // Elements reference
+  const wrapperEl = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.useRef)(null);
 
   // Get all inner blocks
   const selectInnerBlocks = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useSelect)(select => {
@@ -64,6 +68,17 @@ function Edit({
     });
   }, [selectInnerBlocks]);
 
+  // Handle active image according to the state
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    handleActiveImg();
+  }, [preview, previewActiveImg]);
+  const handleActiveImg = () => {
+    if (wrapperEl.current) {
+      Array.from(wrapperEl.current?.children).map(item => item.classList.remove("isActive"));
+      wrapperEl.current?.children[previewActiveImg].classList.add("isActive");
+    }
+  };
+
   // Render
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.BlockControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.ToolbarGroup, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.ToolbarButton, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Preview", _block_json__WEBPACK_IMPORTED_MODULE_6__.textdomain),
@@ -79,8 +94,16 @@ function Edit({
     orientation: "horizontal",
     template: [["core/image"], ["core/image"], ["core/image"]]
   }), preview && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "isPreviewed"
-  })));
+    className: "isPreviewed",
+    ref: wrapperEl
+  }, selectInnerBlocks.map((innerBlock, idx) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("figure", {
+    key: innerBlock.clientId,
+    className: "wp-block-image",
+    onClick: () => setPreviewActiveImg(idx)
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+    src: innerBlock.attributes.url,
+    alt: innerBlock.attributes.alt
+  }))))));
 }
 
 /***/ }),
