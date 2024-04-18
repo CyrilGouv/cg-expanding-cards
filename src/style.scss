@@ -18,4 +18,12 @@
             object-fit: cover;
         }
     }
+
+    &.hasBorderRadius .wp-block-image img {
+        border-radius: 50px;
+    }
+
+    &.hasEnableGap {
+        column-gap: .5rem;
+    }
 }
