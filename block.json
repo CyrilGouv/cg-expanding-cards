@@ -14,6 +14,10 @@
         "columns": {
             "type": "number",
             "default": 3
+        },
+        "enableBorderRadius": {
+            "type": "boolean",
+            "default": false
         }
     },
     "textdomain": "expanding-cards",
