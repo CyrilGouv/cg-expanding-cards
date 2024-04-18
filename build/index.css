@@ -21,5 +21,24 @@
   -o-object-fit: cover;
      object-fit: cover;
 }
+.wp-block-cyrilgouv-expanding-cards .preview-mode {
+  display: flex;
+}
+.wp-block-cyrilgouv-expanding-cards .preview-mode .wp-block-image {
+  flex: 0.5;
+  transition: flex 0.375s ease-in;
+  height: 20vw;
+  cursor: pointer;
+}
+.wp-block-cyrilgouv-expanding-cards .preview-mode .wp-block-image.isActive {
+  flex: var(--columns);
+}
+.wp-block-cyrilgouv-expanding-cards .preview-mode .wp-block-image img {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 
 /*# sourceMappingURL=index.css.map*/
