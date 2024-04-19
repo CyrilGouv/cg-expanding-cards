@@ -13,7 +13,7 @@
     "attributes": {
         "columns": {
             "type": "number",
-            "default": 3
+            "default": 2
         },
         "enableBorderRadius": {
             "type": "boolean",
