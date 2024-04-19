@@ -97,7 +97,6 @@ export default function Edit({ attributes, setAttributes, clientId }) {
                         orientation="horizontal"
                         template={[
                             ["core/image"],
-                            ["core/image"],
                             ["core/image"]
                         ]}
                     />
