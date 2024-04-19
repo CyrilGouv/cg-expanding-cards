@@ -1,8 +1,8 @@
 # CG Expanding Cards
-Expanding cards block plugin
+Simple expanding cards block plugin
 
 ## Block editor
-[![Watch the video](/src/assets/wp-admin-capture.png)](/src/assets/wp-admin.webm)
+[![Watch the video](/src/assets/wp-admin-capture.png)](/src/assets/wp-admin.mp4)
 
 ## Front result
-![Create React App](/src/assets/front-capture.png)
+![Front result](/src/assets/front-capture.png)
